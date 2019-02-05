@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row" >
+    <div class="col">
+
+
+        <div class="row justify-content-end">
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-primary">Add User</button>
+    </div>
+
+  </div>
+
+    </div>
+</div>
+
+
+
+<div class="row">
+<div class="col">
+
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Created</th>
+            <th scope="col">Group</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for user in list_users %}
+        <tr>
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.username}}</td>
+            <td>{{user.created}}</td>
+            <td>{{user.group}}</td>
+            <td>buttons</td>
+        </tr>
+
+        {% endfor %}
+
+
+
+
+        </tbody>
+    </table>
+
+
+</div>
+</div>
+
+
+
+{% endblock content %}
