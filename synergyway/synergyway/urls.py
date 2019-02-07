@@ -16,10 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from website.views import ListUsersView, ListGroupsView
+from website.views import ListUsersView, ListGroupsView, CreateUserView, CreateGroupView, DeleteUserView, \
+    DeleteGroupView, EditUserView, EditGroupView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', ListUsersView.as_view(), name='users'),
+    path('user/add', CreateUserView.as_view(), name='add_user'),
+    path('user/delete/<int:pk>', DeleteUserView.as_view(), name='delete_user'),
+    path('user/edit/<int:pk>', EditUserView.as_view(), name='edit_user'),
+
     path('groups/', ListGroupsView.as_view(), name='groups'),
+    path('groups/add', CreateGroupView.as_view(), name='add_group'),
+    path('groups/delete/<int:pk>', DeleteGroupView.as_view(), name='delete_group'),
+    path('groups/edit/<int:pk>', EditGroupView.as_view(), name='edit_group'),
 ]
